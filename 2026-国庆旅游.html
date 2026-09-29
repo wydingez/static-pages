@@ -18,6 +18,9 @@
     --d3:#3b7c9c;
     --d4:#6f63a8;
     --d5:#b1802f;
+    --red:#d93025;
+    --red-soft:#fdecea;
+    --red-border:#f5c6c0;
     --radius:16px;
   }
 
@@ -408,6 +411,39 @@
   .alert li{margin-bottom:3px;}
   .alert li:last-child{margin-bottom:0;}
 
+  /* ============ 红色高亮 ============ */
+  .hl-red{
+    color:var(--red);
+    font-weight:800;
+  }
+  .hl-red-bg{
+    background:var(--red-soft);
+    color:var(--red);
+    font-weight:800;
+    padding:1px 6px;
+    border-radius:5px;
+    border:1px solid var(--red-border);
+  }
+  .alert.red{
+    background:var(--red-soft);
+    border-color:var(--red);
+    color:#8a1a12;
+  }
+  .alert.red b{color:var(--red);}
+
+  /* 预约清单高亮 */
+  .booking-highlight{
+    border:2px solid var(--red);
+    box-shadow:0 0 0 4px rgba(217,48,37,.08);
+  }
+  .booking-highlight .panel-head{
+    background:linear-gradient(100deg,#fdecea,#fff 70%);
+    border-bottom-color:var(--red-border);
+  }
+  .booking-highlight .panel-head h2{
+    color:var(--red);
+  }
+
   /* ============ 清单 ============ */
   .checklist{list-style:none;margin:0;padding:0;font-size:13.5px;}
   .checklist li{
@@ -577,6 +613,14 @@
             <span class="note">直奔核心演出，不必全园逛完</span>
           </div>
           <div class="tl">
+            <span class="t">17:00</span><span class="d">三打祝家庄</span>
+            <span class="note">需预约，提前占座</span>
+          </div>
+          <div class="tl">
+            <span class="t">18:20</span><span class="d">大马戏（已购票）</span>
+            <span class="note">时长约 1 小时，提前入场</span>
+          </div>
+          <div class="tl">
             <span class="t">20:30</span><span class="d">打铁花（压轴）</span>
             <span class="note">提前 40–60 分钟占位</span>
           </div>
@@ -608,9 +652,9 @@
         <div class="sec" style="margin-top:14px;">
           <h3><span class="ico">🅿️</span>停车方案<span class="tag">国庆必看</span></h3>
           <div class="cards two">
-            <div class="mini" style="border-color:#f0dcb4;background:#fffdf7;">
-              <h4><span class="dot"></span>主推停车场</h4>
-              <p><b>百花北路停车场</b>（导航直接搜「百花北路停车场」）</p>
+            <div class="mini" style="border-color:var(--red-border);background:var(--red-soft);">
+              <h4><span class="dot"></span><span class="hl-red">主推停车场</span></h4>
+              <p><b class="hl-red">百花北路停车场</b>（导航直接搜「百花北路停车场」）</p>
               <p>位于天使城附近百花北路沿线，步行至天使城约 5–10 分钟，是国庆期间相对稳妥的选择。</p>
               <p><b>建议：</b>10:40 前抵达，先停这里再步行过去。</p>
             </div>
@@ -621,8 +665,8 @@
               <p><b>许都广场停车场</b>：许都路与魏文路交叉口西 300 米路北，约 500 个车位</p>
             </div>
           </div>
-          <div class="alert info">
-            <b>🚗 导航建议：</b>直接设置终点为「<b>百花北路停车场</b>」，不要设「胖东来天使城」——国庆期间天使城地下停车场极易满位，绕行找车位很浪费时间。若百花北路也满，按上表依次切换备用停车场。
+          <div class="alert red">
+            <b>🚗 导航建议：</b>直接设置终点为「<b class="hl-red">百花北路停车场</b>」，不要设「胖东来天使城」——国庆期间天使城地下停车场极易满位，绕行找车位很浪费时间。若百花北路也满，按上表依次切换备用停车场。
           </div>
         </div>
 
@@ -648,15 +692,24 @@
 
       <div class="sec">
         <h3><span class="ico">🏯</span>万岁山·大宋武侠城（15:00–21:30）</h3>
+
+        <!-- 大马戏专属提醒 -->
+        <div class="alert red" style="margin-bottom:14px;">
+          <b>🎪 大马戏已购票提醒：</b><br>
+          您已购买万岁山大马戏演出票，场次有 <b>11:50 / 14:00 / 16:10 / 18:20</b>，时长约 <b>1 小时</b>。<br>
+          根据现有行程（15:00 抵达），推荐选择 <b class="hl-red">18:20 场</b>，可完美错开 17:00 三打祝家庄与 20:30 打铁花，切换场地时间充裕。<br>
+          <b>建议动线：</b>17:00 三打祝家庄（约 40 分钟）→ 17:40 前往大马戏场地 → <b class="hl-red">18:20–19:20 大马戏</b> → 19:20 前往打铁花场地占位 → 20:30 打铁花。
+        </div>
+
         <div class="cards two">
           <div class="mini">
             <h4><span class="dot"></span>门票 &amp; 停车</h4>
             <p><b>门票：</b>成人 60–100 元（以公众号实际售价为准），3 天可反复入园</p>
-            <p><b>停车定位：</b>导航「<b>水文站街地面停车场</b>」，停好后步行 / 换乘前往万岁山。</p>
+            <p><b>停车定位：</b>导航「<b class="hl-red">水文站街地面停车场</b>」，停好后步行 / 换乘前往万岁山。</p>
           </div>
           <div class="mini">
             <h4><span class="dot"></span>高效路线</h4>
-            <p>北门入园 → 立刻预约三打祝家庄 + 打铁花 → 拿演出表 → 水浒古街逛吃 → 17:00 看三打祝家庄 → 园区闲逛 → 20:30 占位看打铁花 → 结束返程</p>
+            <p>北门入园 → 立刻预约三打祝家庄 + 打铁花 → 拿演出表 → 水浒古街逛吃 → 17:00 三打祝家庄 → <b class="hl-red">18:20 大马戏</b> → 20:30 打铁花 → 结束返程</p>
           </div>
         </div>
 
@@ -664,9 +717,9 @@
         <div class="sec" style="margin-top:14px;">
           <h3><span class="ico">🅿️</span>停车方案<span class="tag">国庆必看</span></h3>
           <div class="cards two">
-            <div class="mini" style="border-color:#f0dcb4;background:#fffdf7;">
-              <h4><span class="dot"></span>主推停车点</h4>
-              <p><b>水文站街地面停车场</b>（导航直接搜「水文站街地面停车场」）</p>
+            <div class="mini" style="border-color:var(--red-border);background:var(--red-soft);">
+              <h4><span class="dot"></span><span class="hl-red">主推停车点</span></h4>
+              <p><b class="hl-red">水文站街地面停车场</b>（导航直接搜「水文站街地面停车场」）</p>
               <p>位于万岁山景区周边，国庆期间作为自驾停车点位使用，停好后步行或换乘前往万岁山，避免景区门口堵车找位。</p>
             </div>
             <div class="mini">
@@ -677,8 +730,8 @@
               <p>每个换乘停车场均有<b>直达万岁山的免费公交专线</b>，点对点直发，中途不上下客。</p>
             </div>
           </div>
-          <div class="alert info">
-            <b>🚗 导航建议：</b>直接设置终点为「<b>水文站街地面停车场</b>」；若已满，切换到上述任一免费换乘停车场。国庆期间万岁山北门 / 西门停车场极易满位，不要直接导航到景区门口，否则容易被堵在路上。
+          <div class="alert red">
+            <b>🚗 导航建议：</b>直接设置终点为「<b class="hl-red">水文站街地面停车场</b>」；若已满，切换到上述任一免费换乘停车场。国庆期间万岁山北门 / 西门停车场极易满位，不要直接导航到景区门口，否则容易被堵在路上。
           </div>
         </div>
 
@@ -690,15 +743,15 @@
             <tbody>
               <tr>
                 <td><b>三打祝家庄</b></td>
-                <td class="price">11:00 / 17:00</td>
+                <td class="price hl-red">11:00 / 17:00</td>
                 <td>城寨沙场</td>
-                <td>实景马战 + 爆破特效，需小程序预约，提前占座</td>
+                <td><b class="hl-red">需小程序预约，提前占座</b></td>
               </tr>
               <tr>
                 <td><b>打铁花（压轴）</b></td>
-                <td class="price">19:30 / 20:30 / 21:30</td>
+                <td class="price hl-red">19:30 / 20:30 / 21:30</td>
                 <td>城寨沙场</td>
-                <td>非遗表演，提前 40–60 分钟占位</td>
+                <td><b class="hl-red">非遗表演，提前 40–60 分钟占位</b></td>
               </tr>
               <tr>
                 <td><b>王婆说媒</b></td>
@@ -706,16 +759,23 @@
                 <td>水浒街戏台</td>
                 <td>互动性强，适合顺路看</td>
               </tr>
+              <tr>
+                <td><b>大马戏</b></td>
+                <td class="price hl-red">11:50 / 14:00 / 16:10 / 18:20</td>
+                <td>大马戏场馆</td>
+                <td><b class="hl-red">已购票，推荐 18:20 场，时长约 1 小时</b></td>
+              </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="alert warn">
-          <b>⚠️ 避坑：</b>
+        <div class="alert red">
+          <b>⚠️ 避坑（重点标红）：</b>
           <ul>
-            <li>王牌演出必须线上预约，没约上看不了</li>
-            <li>不要路边高价租古装，园区内水浒街有正规租赁</li>
-            <li>演出表提前在公众号存好，别瞎走瞎等</li>
+            <li><b class="hl-red">王牌演出必须线上预约，没约上看不了</b></li>
+            <li><b class="hl-red">不要路边高价租古装</b>，园区内水浒街有正规租赁</li>
+            <li><b class="hl-red">演出表提前在公众号存好</b>，别瞎走瞎等</li>
+            <li><b class="hl-red">大马戏已购票，务必按推荐场次使用</b>，提前入场</li>
           </ul>
         </div>
       </div>
@@ -806,6 +866,12 @@
         <div><span class="k">建议</span> <b>睡到自然醒，11:00 前出发</b></div>
       </div>
 
+      <!-- 闲鱼门票提醒（2号12点后） -->
+      <div class="alert red" style="margin-bottom:16px;">
+        <b>📌 重要提醒（10月2日 12:00 后）：</b><br>
+        请确认闲鱼上购买的 <b class="hl-red">老君山门票出票情况</b>。若未出票，立即联系卖家或准备官方渠道候补，避免 Day4 无法入园。
+      </div>
+
       <div class="sec">
         <h3><span class="ico">⏱️</span>当日节奏<span class="tag">不用早起</span></h3>
         <div class="timeline">
@@ -839,7 +905,7 @@
           <div class="mini">
             <h4><span class="dot"></span>门票 &amp; 预约</h4>
             <p><b>门票：</b>全价票 90 元（含西山石窟、东山石窟、香山寺、白园）</p>
-            <p><b>预约：</b>必须提前 1–7 天通过「龙门石窟」官方微信公众号实名预约，现场基本无票可购</p>
+            <p><b>预约：</b>必须提前 1–7 天通过「龙门石窟」官方微信公众号实名预约，<b class="hl-red">现场基本无票可购</b></p>
           </div>
           <div class="mini">
             <h4><span class="dot"></span>入口指引</h4>
@@ -859,12 +925,12 @@
           <p><b>对岸礼佛台：</b>拍西山石窟全景视野最佳</p>
         </div>
 
-        <div class="alert warn">
-          <b>⚠️ 避坑：</b>
+        <div class="alert red">
+          <b>⚠️ 避坑（重点标红）：</b>
           <ul>
-            <li>穿防滑运动鞋，景区台阶多、坡度大</li>
-            <li>拒绝路边非正规导游，可租官方电子导览器约 30 元</li>
-            <li>只想逛西山就够，东山可跳过，省体力</li>
+            <li><b class="hl-red">穿防滑运动鞋</b>，景区台阶多、坡度大</li>
+            <li><b class="hl-red">拒绝路边非正规导游</b>，可租官方电子导览器约 30 元</li>
+            <li><b class="hl-red">只想逛西山就够</b>，东山可跳过，省体力</li>
           </ul>
         </div>
       </div>
@@ -881,8 +947,8 @@
             <p>免费夜游，文峰塔夜景好看。</p>
           </div>
         </div>
-        <div class="alert warn">
-          <b>⚠️ 汉服提醒：</b>洛邑古城周边汉服店很多，谨慎选择高价妆造。建议提前在平台比价，一般 <b>100–200 元含妆造</b>比较合理。
+        <div class="alert red">
+          <b>⚠️ 汉服提醒：</b>洛邑古城周边汉服店很多，<b class="hl-red">谨慎选择高价妆造</b>。建议提前在平台比价，一般 <b>100–200 元含妆造</b>比较合理。
         </div>
       </div>
 
@@ -965,6 +1031,11 @@
         <div><span class="k">路线</span> <b>洛栾高速 · 过路费约 70 元</b></div>
       </div>
 
+      <div class="alert red" style="margin-bottom:16px;">
+        <b>📌 重要提醒（今日 12:00 后）：</b><br>
+        请确认闲鱼上购买的 <b class="hl-red">老君山门票出票情况</b>。若未出票，立即联系卖家或准备官方渠道候补，避免 Day4 无法入园。
+      </div>
+
       <div class="alert info">
         <b>🚗 导航设置：</b>「老君山云景索道 13 号停车场」（离索道最近）。全程柏油路面平整，国庆容易堵，尽量早出发。
       </div>
@@ -977,6 +1048,9 @@
           </div>
           <div class="tl">
             <span class="t">10:40</span><span class="d">抵达老君山镇，先办入住、简单休整</span>
+          </div>
+          <div class="tl">
+            <span class="t">12:00后</span><span class="d"><b class="hl-red">确认闲鱼老君山门票出票情况</b></span>
           </div>
           <div class="tl">
             <span class="t">下午</span><span class="d">轻松逛追梦谷（可选）</span>
@@ -1017,8 +1091,8 @@
             </tbody>
           </table>
         </div>
-        <div class="alert warn">
-          <b>⚠️ 避坑：</b>住<b>山脚下，不要住山顶</b>——山顶贵且条件差。
+        <div class="alert red">
+          <b>⚠️ 避坑：</b>住<b class="hl-red">山脚下，不要住山顶</b>——山顶贵且条件差。
         </div>
       </div>
 
@@ -1044,8 +1118,8 @@
             <p><b>原因：</b>山上物价很贵，泡面 12 元/碗、热水 5 元/杯</p>
           </div>
         </div>
-        <div class="alert tip">
-          <b>💡 提前准备：</b>登山杖（山下 5–8 元买，山上 30+）、厚外套（山顶比山下低 8–10℃）、保温杯、充电宝、离线地图（山上信号弱）。
+        <div class="alert red">
+          <b>💡 提前准备：</b>登山杖（山下 5–8 元买，<b class="hl-red">山上 30+</b>）、厚外套（山顶比山下低 8–10℃）、保温杯、充电宝、离线地图（山上信号弱）。
         </div>
       </div>
 
@@ -1088,7 +1162,7 @@
               <tr>
                 <td><b>一级索道</b>（中灵 / 云景，山脚→中天门）</td>
                 <td class="price">130 元</td>
-                <td><b>必买</b>，徒步上山要 4 小时+</td>
+                <td><b class="hl-red">必买</b>，徒步上山要 4 小时+</td>
               </tr>
               <tr>
                 <td><b>二级峰林索道</b>（中天门→十里画屏）</td>
@@ -1132,7 +1206,7 @@
           </div>
           <div class="tl">
             <span class="t">18:30</span><span class="d">准备下山</span>
-            <span class="note">⚠️ 索道下午 3:30–4:00 停止上行，下山也要赶早</span>
+            <span class="note">⚠️ <b class="hl-red">索道下午 3:30–4:00 停止上行</b>，下山也要赶早</span>
           </div>
           <div class="tl">
             <span class="t">17:30</span><span class="d">自驾回洛阳（约 2.7h）</span>
@@ -1145,14 +1219,14 @@
 
       <div class="sec">
         <h3><span class="ico">⚠️</span>关键避坑</h3>
-        <div class="alert warn">
+        <div class="alert red">
           <ul>
-            <li>索道上行截止 15:30–16:00，务必上午出发</li>
-            <li>没有官方「VIP 快速通道」，路边说能插队全是骗局</li>
-            <li>不买玉石、野生药材</li>
-            <li>山顶风大，保温杯必带，喝热水暖身又解渴</li>
-            <li>下载离线地图，山上信号弱</li>
-            <li>不要贪多，金顶拍完就准备下山，别拖到索道停运</li>
+            <li><b class="hl-red">索道上行截止 15:30–16:00，务必上午出发</b></li>
+            <li><b class="hl-red">没有官方「VIP 快速通道」，路边说能插队全是骗局</b></li>
+            <li><b class="hl-red">不买玉石、野生药材</b></li>
+            <li><b class="hl-red">山顶风大，保温杯必带</b>，喝热水暖身又解渴</li>
+            <li><b class="hl-red">下载离线地图，山上信号弱</b></li>
+            <li><b class="hl-red">不要贪多，金顶拍完就准备下山</b>，别拖到索道停运</li>
           </ul>
         </div>
       </div>
@@ -1202,8 +1276,8 @@
           </div>
         </div>
 
-        <div class="alert warn">
-          <b>⚠️ 限行提醒：</b>白马寺景区在法定节假日期间，白马寺大道部分路段每日 <b>8:30–17:00</b> 禁止通行（中小型车辆）。前往白马寺的车辆需停放在中州东路释源广场的第一 / 第二停车场，或白马寺 P4 停车场，然后步行或换乘摆渡车前往。建议早到避开管制。
+        <div class="alert red">
+          <b>⚠️ 限行提醒：</b>白马寺景区在法定节假日期间，白马寺大道部分路段每日 <b class="hl-red">8:30–17:00 禁止通行</b>（中小型车辆）。前往白马寺的车辆需停放在中州东路释源广场的第一 / 第二停车场，或白马寺 P4 停车场，然后步行或换乘摆渡车前往。建议早到避开管制。
         </div>
       </div>
 
@@ -1244,12 +1318,12 @@
           <tbody>
             <tr>
               <td><b>胖东来天使城</b></td>
-              <td><b>百花北路停车场</b>（导航搜「百花北路停车场」）</td>
+              <td><b class="hl-red">百花北路停车场</b>（导航搜「百花北路停车场」）</td>
               <td>金石停车场（300个）、市人大政协院停车场（200个，节假日免费）、许都广场停车场（500个）、程府黄烟鹅饭店停车场（30个）</td>
             </tr>
             <tr>
               <td><b>万岁山武侠城</b></td>
-              <td><b>水文站街地面停车场</b>（导航搜「水文站街地面停车场」）</td>
+              <td><b class="hl-red">水文站街地面停车场</b>（导航搜「水文站街地面停车场」）</td>
               <td>1号换乘停车场（连霍高速开封站向南500米，2000个）；2号换乘停车场（连霍高速龙亭站向南2000米，1500个）；3号换乘停车场（安远门大道与复兴大道交叉口左转向东300米路南，2000个）。均有免费公交专线直达万岁山</td>
             </tr>
             <tr>
@@ -1276,22 +1350,22 @@
         </table>
       </div>
 
-      <div class="alert tip" style="margin-top:14px;">
-        <b>💡 国庆停车通用建议：</b>
+      <div class="alert red" style="margin-top:14px;">
+        <b>💡 国庆停车通用建议（重点标红）：</b>
         <ul>
-          <li>所有热门景区<b>上午 10 点前</b>到达，车位最充裕</li>
+          <li><b class="hl-red">所有热门景区上午 10 点前到达</b>，车位最充裕</li>
           <li>出发前在导航 App 中收藏各景区停车场地址，实时查看剩余车位</li>
           <li>优先选择有充电桩的停车场（龙门石窟西北/东北服务区、老君山13号停车场等）</li>
-          <li>不要直接导航到景区门口，节假日极易堵死；先停换乘停车场再换乘公交 / 地铁更省心</li>
+          <li><b class="hl-red">不要直接导航到景区门口</b>，节假日极易堵死；先停换乘停车场再换乘公交 / 地铁更省心</li>
         </ul>
       </div>
 
-      <div class="alert warn">
+      <div class="alert red">
         <b>🚇 洛阳换乘停车场：</b>国庆期间洛阳设置 2 处换乘停车场：①瀍河区河洛古城停车场（地铁1号线杨湾站附近，1100余个车位）；②龙门大道伊洛路交叉口向东150米路南（地铁2号线八里堂站附近，200余个车位）。停车后可换乘地铁直达洛邑古城、应天门、龙门石窟等核心景点。
       </div>
 
-      <div class="alert warn">
-        <b>🚌 开封免费换乘：</b>1号/2号/3号换乘停车场均设有<b>直达万岁山武侠城的免费公交专线</b>，点对点直发，中途不上下客。国庆期间开封全市还有 37 个临时停车场，增加 6262 个泊位。若「水文站街地面停车场」已满，优先切换到上述免费换乘停车场。
+      <div class="alert red">
+        <b>🚌 开封免费换乘：</b>1号/2号/3号换乘停车场均设有<b class="hl-red">直达万岁山武侠城的免费公交专线</b>，点对点直发，中途不上下客。国庆期间开封全市还有 37 个临时停车场，增加 6262 个泊位。若「水文站街地面停车场」已满，优先切换到上述免费换乘停车场。
       </div>
 
     </div>
@@ -1406,9 +1480,9 @@
   </section>
 
   <!-- ============================================================
-       预约清单
+       预约清单（高亮明显）
   ============================================================ -->
-  <section class="panel" id="booking">
+  <section class="panel booking-highlight" id="booking">
     <div class="panel-head">
       <h2>📋 全程关键预约清单</h2>
       <p>以下项目必须提前预约，否则可能进不去 / 看不上</p>
@@ -1423,32 +1497,38 @@
             <tr>
               <td><b>龙门石窟门票</b></td>
               <td>「龙门石窟」公众号</td>
-              <td class="price">1–7 天</td>
-              <td>必须预约，现场无票</td>
+              <td class="price hl-red">1–7 天</td>
+              <td><b class="hl-red">必须预约，现场无票</b></td>
             </tr>
             <tr>
               <td><b>老君山门票 + 索道</b></td>
               <td>「老君山风景名胜区」公众号</td>
-              <td class="price">7 天</td>
-              <td>刷身份证入园</td>
+              <td class="price hl-red">7 天</td>
+              <td>刷身份证入园；<b class="hl-red">闲鱼购票请于 10月2日12:00 后确认出票</b></td>
             </tr>
             <tr>
               <td><b>万岁山·三打祝家庄</b></td>
               <td>万岁山官方小程序</td>
-              <td class="price">入园后立即</td>
-              <td>不预约看不了</td>
+              <td class="price hl-red">入园后立即</td>
+              <td><b class="hl-red">不预约看不了</b></td>
             </tr>
             <tr>
               <td><b>万岁山·打铁花</b></td>
               <td>万岁山官方小程序</td>
-              <td class="price">入园后立即</td>
-              <td>提前 40–60 分钟占位</td>
+              <td class="price hl-red">入园后立即</td>
+              <td><b class="hl-red">提前 40–60 分钟占位</b></td>
+            </tr>
+            <tr>
+              <td><b>万岁山·大马戏</b></td>
+              <td>已购票</td>
+              <td class="price hl-red">按票面场次</td>
+              <td><b class="hl-red">推荐 18:20 场，时长约 1 小时，提前入场</b></td>
             </tr>
             <tr>
               <td><b>酒店</b></td>
               <td>携程 / 飞猪等</td>
-              <td class="price">15–30 天</td>
-              <td>国庆涨价快，越早越好</td>
+              <td class="price hl-red">15–30 天</td>
+              <td><b class="hl-red">国庆涨价快，越早越好</b></td>
             </tr>
           </tbody>
         </table>
@@ -1457,26 +1537,28 @@
   </section>
 
   <!-- ============================================================
-       避坑指南
+       避坑指南（重点标红）
   ============================================================ -->
   <section class="panel" id="tips">
     <div class="panel-head">
       <h2>⚠️ 全程综合避坑提醒</h2>
-      <p>出发前对照检查一遍</p>
+      <p>出发前对照检查一遍，<b class="hl-red">红色为必须注意项</b></p>
     </div>
     <div class="panel-body">
       <ul class="checklist">
-        <li><b>限行政策：</b>洛阳自 2022 年 6 月起已解除城市区机动车尾号限行，国庆期间不限行。但白马寺景区周边节假日有专项管制，注意绕行。</li>
-        <li><b>加油：</b>建议在栾川县城加满油再上山，伏牛山部分路段无加油站。</li>
-        <li><b>天气：</b>10 月初栾川山区气温约 10–20℃，山顶比山下低 8–10℃，务必带厚外套 / 薄羽绒。</li>
-        <li><b>伴手礼：</b>不要在胖东来疯狂买重物，返程可在洛阳买牡丹饼、牡丹花茶等轻便特产。</li>
-        <li><b>汉服：</b>洛阳汉服市场成熟，建议在小红书 / 抖音提前比价，一般 100–200 元含妆造是合理价位，不要临时在景区门口被高价宰。</li>
-        <li><b>老君山：</b>山下买登山杖（5–8 元），山上 30+；下载离线地图，山上信号弱。</li>
-        <li><b>老君山：</b>没有官方「VIP 快速通道」，路边说能插队全是骗局。</li>
-        <li><b>万岁山：</b>演出表提前在公众号存好，别瞎走瞎等；不要路边高价租古装。</li>
-        <li><b>龙门石窟：</b>走西北服务区进，只认真逛西山就够，东山可跳过省体力。</li>
-        <li><b>返程：</b>建议 11 点前上高速，避开傍晚返程超级大堵车。</li>
-        <li><b>停车：</b>国庆热门景区车位紧张，胖东来优先停百花北路停车场；万岁山优先停水文站街地面停车场，满了再切换到开封免费换乘停车场，不要直接导航到景区门口。</li>
+        <li><b>限行政策：</b>洛阳自 2022 年 6 月起已解除城市区机动车尾号限行，国庆期间不限行。但<b class="hl-red">白马寺景区周边节假日有专项管制</b>，注意绕行。</li>
+        <li><b>加油：</b>建议在<b class="hl-red">栾川县城加满油再上山</b>，伏牛山部分路段无加油站。</li>
+        <li><b>天气：</b>10 月初栾川山区气温约 10–20℃，<b class="hl-red">山顶比山下低 8–10℃</b>，务必带厚外套 / 薄羽绒。</li>
+        <li><b>伴手礼：</b><b class="hl-red">不要在胖东来疯狂买重物</b>，返程可在洛阳买牡丹饼、牡丹花茶等轻便特产。</li>
+        <li><b>汉服：</b>洛阳汉服市场成熟，建议提前比价，一般 100–200 元含妆造是合理价位，<b class="hl-red">不要临时在景区门口被高价宰</b>。</li>
+        <li><b>老君山：</b>山下买登山杖（5–8 元），<b class="hl-red">山上 30+</b>；<b class="hl-red">下载离线地图，山上信号弱</b>。</li>
+        <li><b>老君山：</b><b class="hl-red">没有官方「VIP 快速通道」，路边说能插队全是骗局</b>。</li>
+        <li><b>万岁山：</b><b class="hl-red">演出表提前在公众号存好</b>，别瞎走瞎等；<b class="hl-red">不要路边高价租古装</b>。</li>
+        <li><b>龙门石窟：</b><b class="hl-red">走西北服务区进，只认真逛西山就够</b>，东山可跳过省体力。</li>
+        <li><b>返程：</b><b class="hl-red">建议 11 点前上高速</b>，避开傍晚返程超级大堵车。</li>
+        <li><b>停车：</b>国庆热门景区车位紧张，<b class="hl-red">胖东来优先停百花北路停车场</b>；<b class="hl-red">万岁山优先停水文站街地面停车场</b>，满了再切换到开封免费换乘停车场，<b class="hl-red">不要直接导航到景区门口</b>。</li>
+        <li><b>闲鱼门票：</b><b class="hl-red">10月2日12:00后务必确认老君山门票出票情况</b>，避免 Day4 无法入园。</li>
+        <li><b>大马戏：</b><b class="hl-red">已购票，推荐 18:20 场</b>，与三打祝家庄、打铁花错开，切换场地时间充裕。</li>
       </ul>
     </div>
   </section>
